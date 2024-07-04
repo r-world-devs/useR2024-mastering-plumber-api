@@ -34,7 +34,7 @@ slow <- function(req, res) {
 #' @return The input function decorated with future_promise
 promise_decorate <- function(fun) {
   # Define
-  if (isFALSE(getOption("plumber.use.promises", TRUE))) fun
+  if (isFALSE(getOption("plumber.use.promises", TRUE))) return(fun)
 
   # Create new function with future_promise evaluation
   rlang::new_function(alist(... = ), rlang::expr({
